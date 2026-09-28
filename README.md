@@ -9,7 +9,7 @@ Projeto prático desenvolvido para a disciplina de Desenvolvimento de Aplicaçõ
 - **Rolagem Dinâmica:** Utilização de `ScrollView` para suporte a diferentes densidades e alturas de ecrã.
 
 ## Demonstração Visual
-![Interface Binance](screenshot.png)
+![Interface Binance](Project-Screenshot.png)
 
 ## Tecnologias Utilizadas
 - **IDE:** Android Studio
