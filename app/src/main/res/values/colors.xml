@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="binance_dark">#181A20</color>
+    <color name="binance_card">#0B0E11</color>
+    <color name="binance_yellow">#F0B90B</color>
+    <color name="binance_green">#0ECB81</color>
+    <color name="binance_red">#F6465D</color>
+    <color name="binance_gray_text">#848E9C</color>
+    <color name="binance_white">#EAECEF</color>
+</resources>

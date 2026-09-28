@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Layout principal da interface -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/binance_dark"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Barra superior: Identificação da plataforma e status do usuário -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:id="@+id/tvLogoBinance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BINANCE"
+                android:textColor="@color/binance_yellow"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvStatusVerificado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="Verificado ✓"
+                android:textColor="@color/binance_green"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Cartão principal: Visão geral de saldo e rentabilidade do dia -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvResumoSaldo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            app:cardBackgroundColor="@color/binance_card"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <TextView
+                    android:id="@+id/tvRotuloSaldo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Saldo Estimado"
+                    android:textColor="@color/binance_gray_text"
+                    android:textSize="13sp" />
+
+                <TextView
+                    android:id="@+id/tvValorSaldo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="US$ 12.845,60"
+                    android:textColor="@color/binance_white"
+                    android:textSize="28sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvRentabilidadeHoje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="Hoje: +US$ 342,15 (+2,74%)"
+                    android:textColor="@color/binance_green"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+                <!-- Botões de operações financeiras imediatas -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnDepositar"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginEnd="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@color/binance_yellow"
+                        android:text="Depositar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/binance_card"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btnComprar"
+                        android:layout_width="0dp"
+                        android:layout_height="42dp"
+                        android:layout_marginStart="6dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="#2B313A"
+                        android:text="Comprar"
+                        android:textAllCaps="false"
+                        android:textColor="@color/binance_white"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Título da seção de cotações em tempo real -->
+        <TextView
+            android:id="@+id/tvTituloMercados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Mercados em Destaque"
+            android:textColor="@color/binance_white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Cotação 1: Bitcoin (BTC) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvParBtc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BTC / USDT"
+                    android:textColor="@color/binance_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetalheBtc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bitcoin • Vol 1.2B"
+                    android:textColor="@color/binance_gray_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvVariacaoBtc"
+                android:layout_width="76dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/binance_green"
+                android:gravity="center"
+                android:text="+3.45%"
+                android:textColor="@color/binance_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPrecoBtc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@+id/tvVariacaoBtc"
+                android:text="$ 64.210,00"
+                android:textColor="@color/binance_white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Linha divisória -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#23262F" />
+
+        <!-- Cotação 2: Ethereum (ETH) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvParEth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ETH / USDT"
+                    android:textColor="@color/binance_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetalheEth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ethereum • Vol 890M"
+                    android:textColor="@color/binance_gray_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvVariacaoEth"
+                android:layout_width="76dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/binance_green"
+                android:gravity="center"
+                android:text="+1.82%"
+                android:textColor="@color/binance_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPrecoEth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@+id/tvVariacaoEth"
+                android:text="$ 3.480,50"
+                android:textColor="@color/binance_white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- ###################################### -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#23262F" />
+
+        <!-- Cotação 3: Solana (SOL) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvParSol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SOL / USDT"
+                    android:textColor="@color/binance_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetalheSol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Solana • Vol 450M"
+                    android:textColor="@color/binance_gray_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvVariacaoSol"
+                android:layout_width="76dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/binance_red"
+                android:gravity="center"
+                android:text="-2.15%"
+                android:textColor="@color/binance_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPrecoSol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@+id/tvVariacaoSol"
+                android:text="$ 148,20"
+                android:textColor="@color/binance_white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <!-- Linha divisória -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#23262F" />
+
+        <!-- Cotação 4: BNB (Binance Coin) -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingVertical="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvParBnb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BNB / USDT"
+                    android:textColor="@color/binance_white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvDetalheBnb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BNB Chain • Vol 310M"
+                    android:textColor="@color/binance_gray_text"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvVariacaoBnb"
+                android:layout_width="76dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@color/binance_green"
+                android:gravity="center"
+                android:text="+0.94%"
+                android:textColor="@color/binance_white"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvPrecoBnb"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_toStartOf="@+id/tvVariacaoBnb"
+                android:text="$ 585,00"
+                android:textColor="@color/binance_white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
